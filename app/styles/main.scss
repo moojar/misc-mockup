@@ -1,0 +1,163 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+@import "foundation/scss/foundation.scss";
+
+$padding-large: 48px; 
+$padding-med: 32px; 
+$padding-small: 16px;
+$padding-none: 0px;
+$border-thick: 3px solid black;
+$border-thin: 1px solid grey;
+
+    .container {
+            @include grid-row;
+            max-width: none;
+            padding: $padding-none;
+        /* Custom page header */
+        .header {
+            min-height: 180px;
+            width: 100%;
+            max-width: none;
+
+            .head-left{
+                @include grid-column(2);
+                position: relative;
+                height: 100%;
+                min-height: 180px;
+                border-bottom: $border-thick;
+                
+                .slash-links{
+                    padding: $padding-med;
+                    margin: 0;
+                    text-align: left;
+                }
+            }
+
+            .head-main {
+                @include grid-column(6);
+            min-height: 180px;
+                height: 100%;
+
+        border-right: $border-thin;
+        border-left: $border-thin;
+            border-bottom: $border-thick;
+
+            p {
+                display: inline-block; 
+                font-size: 8px;
+                color: grey;
+
+            }
+            .ic-logo
+            {
+                display: inline-block;
+                width: 200px;
+                padding-left: auto;
+                padding-right: auto;
+                clear:both;
+            }
+            }
+
+            .head-right {
+                @include grid-column(2);
+                height: 100%;
+
+            min-height: 180px;
+
+            border-bottom: $border-thick;
+                .misc-logo
+                {
+
+                }
+            }
+}
+            .navbar {
+                @include grid-row;
+                max-width: none;
+                .nav-left {
+                @include grid-column(2);
+
+                padding: $padding-none;
+
+            border-bottom: $border-thin;
+                }
+
+                .nav-main {
+                @include grid-column(6);
+                padding: $padding-none;
+                border-right: $border-thin;
+                border-left: $border-thin;
+                border-bottom: $border-thin;
+                    .nav-links{
+
+                    list-style-type: none;
+                    li{
+                        text-align: justify;
+                    display: inline;
+                    }
+                }
+                }
+
+                .nav-right {      
+                @include grid-column(2);
+                padding: $padding-none;
+            border-bottom: $border-thin;
+                }
+            }
+
+.body 
+{
+    .body-left {
+    @include grid-column(2);
+    }
+
+    .body-main{
+        @include grid-column(6);
+
+        border-right: $border-thin;
+        border-left: $border-thin;
+
+        .post-feature { 
+            position: relative;
+            padding: $padding-small;
+            .post-feature-image {
+                z-index: 1;
+            }
+            .post-fly {
+                z-index: 10;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                padding: $padding-small;
+                background-color: black;
+                .post-title{
+                    color: white;
+                }
+                .byline {}
+                .post-author {
+                    color: white;
+                }
+            }
+        }
+
+        .post-split {
+            @include grid-row;
+            .post-image{
+                @include grid-column (6);
+                .post-image-content {
+                    width: 100%;
+                    overflow: hidden
+                }
+
+            }
+            .post-copy{
+                @include grid-column (6);
+            }
+        }
+    }
+    .body-right {@include grid-column(2);}
+}
+
+        .footer {
+        }
+
+    }
