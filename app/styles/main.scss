@@ -1,12 +1,20 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 @import "foundation/scss/foundation.scss";
 
-$padding-large: 48px; 
-$padding-med: 32px; 
+$padding-large: 32px; 
+$padding-med: 24px; 
 $padding-small: 16px;
+$padding-xsmall: 8px;
 $padding-none: 0px;
 $border-thick: 3px solid black;
 $border-thin: 1px solid grey;
+$padding-byline: 0 12px 0 12px;
+
+h1 {
+    font-size: 12px;                    
+    text-align: center;
+    text-transform: uppercase;
+}
 
     .container {
             @include grid-row;
@@ -14,59 +22,76 @@ $border-thin: 1px solid grey;
             padding: $padding-none;
         /* Custom page header */
         .header {
-            min-height: 180px;
+            min-height: 120px;
             width: 100%;
             max-width: none;
 
             .head-left{
                 @include grid-column(2);
-                position: relative;
                 height: 100%;
-                min-height: 180px;
+                min-height: 120px;
                 border-bottom: $border-thick;
+                text-align: center;
                 
                 .slash-links{
-                    padding: $padding-med;
+                    padding: $padding-small;
                     margin: 0;
                     text-align: left;
+                    font-size: 10px;
                 }
             }
 
             .head-main {
                 @include grid-column(6);
-            min-height: 180px;
+                min-height: 120px;
                 height: 100%;
 
-        border-right: $border-thin;
-        border-left: $border-thin;
-            border-bottom: $border-thick;
+                border-right: $border-thin;
+                border-left: $border-thin;
+                border-bottom: $border-thick;
 
-            p {
-                display: inline-block; 
-                font-size: 8px;
-                color: grey;
+                p {
+                    position: absolute;
+                    font-size: 8px;
+                    color: grey;
+                    padding: $padding-small;
+                    margin: 0;
+                }
+                a {
+                    text-align: center;
+                    display: block;
 
-            }
-            .ic-logo
-            {
-                display: inline-block;
-                width: 200px;
-                padding-left: auto;
-                padding-right: auto;
-                clear:both;
-            }
+                    .ic-logo {
+                        width: 180px;
+                        padding: $padding-small;
+                        padding-top: $padding-med;
+                    }
+                }
             }
 
             .head-right {
                 @include grid-column(2);
                 height: 100%;
+                min-height: 120px;
+                border-bottom: $border-thick;
+                text-align: center;
+                .content {
+                    p{
+                        font-size: 8px;
+                        text-align: center;
+                        color: grey;
+                        padding-top: $padding-med;
+                        padding-bottom: 0;
+                        margin: 0;
+                    }
 
-            min-height: 180px;
-
-            border-bottom: $border-thick;
-                .misc-logo
-                {
-
+                    a { 
+                        text-align: center;
+                        .misc-logo
+                        {
+                            width: 100px;
+                        }
+                    }
                 }
             }
 }
@@ -108,6 +133,8 @@ $border-thin: 1px solid grey;
 {
     .body-left {
     @include grid-column(2);
+    background-color: grey;
+    padding: $padding-med;
     }
 
     .body-main{
@@ -115,10 +142,10 @@ $border-thin: 1px solid grey;
 
         border-right: $border-thin;
         border-left: $border-thin;
-
+        padding: $padding-med;
         .post-feature { 
             position: relative;
-            padding: $padding-small;
+            padding: $padding-none;
             .post-feature-image {
                 z-index: 1;
             }
@@ -131,18 +158,41 @@ $border-thin: 1px solid grey;
                 background-color: black;
                 .post-title{
                     color: white;
+                    font-size: 18px;
                 }
-                .byline {}
+                .byline {
+                    border-bottom: 1px solid white;
+                }
                 .post-author {
+                    padding-top: 10px;
+                    padding-bottom: 0;
                     color: white;
+                    font-style: bold;
+                    text-align: center;
                 }
+            }
+            .post-copy
+            {
+                padding: $padding-med;
+                font-style: italic;
+                text-size: 6px;
+                color: grey;
+                padding-bottom: 0;
+
             }
         }
 
+        .byline {
+            border-bottom: $border-thin;
+            padding: $padding-byline;
+            }
+
         .post-split {
             @include grid-row;
+            padding: $padding-none;
             .post-image{
                 @include grid-column (6);
+                padding: $padding-small;
                 .post-image-content {
                     width: 100%;
                     overflow: hidden
@@ -151,10 +201,58 @@ $border-thin: 1px solid grey;
             }
             .post-copy{
                 @include grid-column (6);
+                padding: $padding-small;
+                .post-category {
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+                .post-title {
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+                .byline {
+                    display: none;
+                }
+                .post-author {
+                    border-top: $border-thick;
+                    padding-top: $padding-small;
+                }
             }
         }
     }
-    .body-right {@include grid-column(2);}
+    .body-right {
+        @include grid-column(2);
+        padding: $padding-none;
+        .sidepost {
+
+            padding: $padding-med;
+            .sidepost-image {
+            }
+            .post-copy {
+                p {
+                    text-align: center;
+                    margin: 0;
+                }
+                .post-side-category {
+                    font-size: 10px;
+                    text-transform: uppercase;
+                }
+                .post-side-title {
+                    font-size: 18px; 
+                    text-transform: uppercase;
+                }
+                .post-side-author {
+                    padding-top: 10px;
+                    font-size: 11px;
+                    font-weight: bold;
+                }
+            }
+        }
+        .byline {
+            border-bottom: $border-thin;
+            margin: 0 24px 0 24px;
+        }
+    }
 }
 
         .footer {
